@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace calculator
+{
+    public partial class Form2 : Form
+    {
+
+        SqlConnection con = new SqlConnection(
+                @"Data Source= .\SQLEXPRESS;    
+                Initial Catalog=bit3rdsem;
+                user id=sa;
+                password=kist@123;");
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    con.Open();
+            //    SqlCommand cmd = new SqlCommand("Select * from student", con);
+            //    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            //    System.Data.DataTable dt = new DataTable();
+            //    sda.Fill(dt);
+            //    dataGridView1.DataSource = dt;
+            //    con.Close();
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error: " + ex.InnerException);
+            //}
+
+            String[] row = new String[5];
+            row[1] = textBox3.Text.ToString();
+            row[2] = textBox4.Text.ToString();
+            row[3] = textBox5.Text.ToString();
+            row[4] = textBox6.Text.ToString();
+            dataGridView1.Rows.Add(row);
+
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            string name = textBox3.Text;
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            string address = textBox4.Text;
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            string contact = textBox5.Text;
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            string college = textBox6.Text;
+        }
+    }
+}
